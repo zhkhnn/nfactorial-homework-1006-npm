@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body onload="getValue()">
+<div id="box">
+    <header>
+        <p class="description" style="margin-top: 40px; font-size: 36px;">Assignment 7</p>
+    </header>
+
+    <div class="container" id="contain">
+        <div id="navigation">
+            <a id="mad">Mad Libs</a>
+            <a id="tom">Tom Thumbs</a>
+        </div>
+        <div class="container-inner">
+            <div class = "mad-libs">
+                <div class="input">Person Name:<input type="text" id="name"></div>
+                <div class="input">Character:<input type="text" id="character"></div>
+                <div class="input">Adverb:<input type="text" id="adverb"></div>
+                <div class="input">Adjective:<input type="text" id="adjective"></div>
+                <button id="tellStory">Tell story!</button>
+                <button onclick="setDarkTheme()">Dark mode</button>
+                <button onclick="setWhiteTheme()">White mode</button>
+                <button onclick="setCookie()">Set cookies</button>
+
+
+            </div>
+            <div class="tellStory_output"></div>
+        </div>
+        <div id="container2">
+            <div class = "tom-thumbs">
+                <div class="input">Image width:<input type="text" id="width"></div>
+                <div class="input">Image height:<input type="text" id="height"></div>
+                <div class="input">Colors:<input type="text" id="colors"></div>
+                <button id="calculate">Calculate!</button>
+                <button onclick="setDarkTheme()">Dark mode</button>
+                <button onclick="setWhiteTheme()">White mode</button>
+
+            </div>
+            <div class="calculate_output"></div>
+        </div>
+    </div>
+    <footer class=""style="display: flex;justify-content:center; background-color: grey;">
+        <h2 class="dark">Good job!</h2>
+    </footer>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="index.js"></script>
+<script>
+    function setDarkTheme(){
+        localStorage.setItem('theme', 'dark');
+        const root = document.getElementById('box')
+        root.className='dark';
+
+    }
+    function setWhiteTheme(){
+        localStorage.setItem('theme', 'white');
+        const root = document.getElementById('box')
+        root.className='white';
+    }
+    function getValue(){
+        const theme = localStorage.getItem('theme');
+        const root = document.getElementById('box')
+        root.className=theme;
+    }
+    const setCookie= () =>{
+        document.cookie = "user=Aruzhan; expires=Wed, 15 Jun 2022 03:14:07 GMT"
+    }
+</script>
+</body>
+</html>
